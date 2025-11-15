@@ -249,6 +249,9 @@ const handleReset = () => {
   if (fileInput.value) {
     fileInput.value.value = ''
   }
+
+  jsonData.value = [];
+  keys.value = [];
 }
 </script>
 
