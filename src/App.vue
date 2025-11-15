@@ -133,7 +133,7 @@ const uploading = ref(false)
 const error = ref(null)
 
 // API 엔드포인트 설정 (Python API 주소로 변경 필요)
-const API_ENDPOINT = 'http://10.11.143.109:8001/v1/api/extract'
+const API_ENDPOINT = 'http://10.11.143.109:8001/api/v1/extract'
 
 let jsonData = ref(null);
 
