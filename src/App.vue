@@ -133,7 +133,7 @@ const uploading = ref(false)
 const error = ref(null)
 
 // API 엔드포인트 설정 (Python API 주소로 변경 필요)
-const API_ENDPOINT = 'http://localhost:8001/api/upload'
+const API_ENDPOINT = 'http://localhost:8001/v1/api/extract'
 
 let jsonData = ref(null);
 
@@ -168,7 +168,7 @@ const handleFileUpload = async (event) => {
   try {
     // FormData 객체 생성
     const formData = new FormData()
-    formData.append('file', file)
+    formData.append('original', file)
 
     // Python API로 이미지 업로드
     const response = await fetch(API_ENDPOINT, {
