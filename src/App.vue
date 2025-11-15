@@ -90,9 +90,9 @@
               <v-card-title>문서 정보</v-card-title>
               <v-card-text>
                 <!-- Grid 형태로 라벨-값 표시 (4행) -->
-                <v-row class="border-b py-3" v-for="key in keys">
-                  <v-col cols="6" class="font-weight-bold">{{ key }}</v-col>
-                  <v-col cols="6">{{ jsonData[0][key] }}</v-col>
+                <v-row class="border-b py-3" v-for="data in jsonData">
+                  <v-col cols="6" class="font-weight-bold">{{ data['title'] }}</v-col>
+                  <v-col cols="6">{{ data['value'] }}</v-col>
                 </v-row>
 
                 <!-- <v-row class="border-b py-3">
@@ -199,7 +199,7 @@ const handleFileUpload = async (event) => {
   
     console.log('업로드 성공:', result)
     jsonData.value = result.data;
-    if(result.data.length > 0) keys.value = Object.keys(result.data[0]);
+    //if(result.data.length > 0) keys.value = Object.keys(result.data[0]);
  
   } catch (err) {
     console.error('업로드 에러:', err)
