@@ -173,7 +173,9 @@ const handleFileUpload = async (event) => {
     formData.append('original', file)
 
     console.log('API_ENDPOINT', API_ENDPOINT);
-    console.log('formData', formData);
+    for (const pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
 
     // Python API로 이미지 업로드
     const response = await fetch(API_ENDPOINT, {
