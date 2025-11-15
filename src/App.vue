@@ -198,7 +198,9 @@ const handleFileUpload = async (event) => {
     const result = await response.json()
   
     console.log('업로드 성공:', result)
-    
+    jsonData.value = result;
+    if(result.length > 0) keys.value = Object.keys(result[0]);
+ 
   } catch (err) {
     console.error('업로드 에러:', err)
     error.value = err.message
