@@ -147,6 +147,8 @@ const handleFileUpload = async (event) => {
   const file = event.target.files[0]
   if (!file) return
 
+  console.log('file:', file);
+
   // 로컬 미리보기 생성
   const localUrl = URL.createObjectURL(file)
   imageUrl.value = localUrl
@@ -170,12 +172,17 @@ const handleFileUpload = async (event) => {
     const formData = new FormData()
     formData.append('original', file)
 
+    console.log('API_ENDPOINT', formDAPI_ENDPOINTata);
+    console.log('formData', formData);
+
     // Python API로 이미지 업로드
     const response = await fetch(API_ENDPOINT, {
       method: 'POST',
       body: formData,
       // headers에 Content-Type을 설정하지 않음 (브라우저가 자동으로 multipart/form-data 설정)
     })
+
+    console.log('response', response);
 
     if (!response.ok) {
       throw new Error(`업로드 실패: ${response.status} ${response.statusText}`)
