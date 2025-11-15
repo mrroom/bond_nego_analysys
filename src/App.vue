@@ -198,8 +198,8 @@ const handleFileUpload = async (event) => {
     const result = await response.json()
   
     console.log('업로드 성공:', result)
-    jsonData.value = result;
-    if(result.length > 0) keys.value = Object.keys(result[0]);
+    jsonData.value = result.data;
+    if(result.data.length > 0) keys.value = Object.keys(result.data[0]);
  
   } catch (err) {
     console.error('업로드 에러:', err)
@@ -209,22 +209,22 @@ const handleFileUpload = async (event) => {
   } finally {
     uploading.value = false;
 
-    jsonData.value = [
-      {
-        'title1': 'value1',
-        'title2': 'value2',
-        'title3': 'value3',
-        'title4': 'value4',
-        'title5': 'value5',
-        'title6': 'value6',
-        'title7': 'value7',
-        'title8': 'value8',
-        'title9': 'value9',
-        'title10': 'value10'
-      }
-    ];
+    // jsonData.value = [
+    //   {
+    //     'title1': 'value1',
+    //     'title2': 'value2',
+    //     'title3': 'value3',
+    //     'title4': 'value4',
+    //     'title5': 'value5',
+    //     'title6': 'value6',
+    //     'title7': 'value7',
+    //     'title8': 'value8',
+    //     'title9': 'value9',
+    //     'title10': 'value10'
+    //   }
+    // ];
 
-    keys.value = Object.keys(jsonData.value[0]);
+    // keys.value = Object.keys(jsonData.value[0]);
 
     console.log('jsonData:', jsonData.value);
     console.log('keys:', keys.value);
